@@ -15,6 +15,9 @@ class WorkExpDisplay extends Component{
                             <p>Company: {workExpInfo.company}</p>
                             <p>Location: {workExpInfo.location}</p>
                             <p>Years at Position: {workExpInfo.datesWorked}</p>
+                            <button id={workExpInfo.key} onClick={this.props.editButton}>edit</button>
+                            <button id={workExpInfo.key} onClick={this.props.deleteButton}>Delete</button>
+                            
                         </div>
                     )
                 })}
