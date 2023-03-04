@@ -60,31 +60,38 @@ class WorkExpForm extends Component{
     }//filters through array and sets workExpInfoArr with new array that does not unique key of the deleted object
 
     edit = (e) =>{
+
+       const tempArr = this.state.workExpInfoArr.filter((workExpInfo)=>{
+            return(
+                workExpInfo.key !== e.target.id
+            );
+        })
+
+        const holder = this.state.workExpInfoArr.filter((workExpInfo)=>{
+            return(
+                workExpInfo.key === e.target.id
+            );
+        })
+
+        const index = this.state.workExpInfoArr.findIndex(workExpInfo => workExpInfo.key === holder[0].key);
+
+        holder[0].edit = true;
+
+        tempArr.splice(index,0 , holder[0]);
         
-          this.state.workExpInfoArr.forEach((workExpInfo) =>{
-                if(workExpInfo.key === e.target.id){
-                    console.log(workExpInfo)
-                    workExpInfo.edit = true;
-                    console.log(workExpInfo)
-                }
-            })
-    }//when edit button is pressed filters through workExpInfoArr and sets workExpInfo.edit that has the corresponding key to true 
+        this.setState({
+            workExpInfoArr: tempArr
+        })
+        
+        console.log(this.state.workExpInfoArr)
+    
+    }// uses filter method to separate the workExpInfoArr into two different arrays than sets workExpInfo.edit to true and merges two arrays
 
-    doesItNeedEdit = () =>{
-       
-      let needsEdit = this.state.workExpInfoArr.find((workExpInfo) => workExpInfo.edit === true)
 
-        if(needsEdit === undefined){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }//if true write a function that filters out the function that needs editing and creates a separate array that can be displayed as a form 
 
     render(){
 
-        const workExp = <form className = "workExpForm" onChange={this.onFormChange}>
+        const workExpForm = <form className = "workExpForm" onChange={this.onFormChange}>
                                 <label htmlFor="position">Position: </label>
                                 <input type="text" id="position"/>
                                 <label htmlFor="company">Company: </label>
@@ -101,27 +108,24 @@ class WorkExpForm extends Component{
         if(this.state.workExpInfoArr.length === 0){
             return(
                 <div>
-                   {workExp}
+                   {workExpForm}
                 </div>
             )
         }
 
-        else{
-            if(this.doesItNeedEdit()){
+ 
 
-            }
-
-            else{ 
-                 return(
-                <div>
-                    <WorkExpDisplay workExpInfoArr={this.state.workExpInfoArr} deleteButton={this.delete} editButton={this.edit}/>
-                    {workExp}
-                </div>
-                )
-            }
+        else{ 
+                return(
+            <div>
+                <WorkExpDisplay workExpInfoArr={this.state.workExpInfoArr} deleteButton={this.delete} workExpForm={workExpForm} editButton={this.edit}/>
+                {workExpForm}
+            </div>
+            )
+        }
           
  
-        }//logic should be in display
+        //logic should be in display
     }
 
 
