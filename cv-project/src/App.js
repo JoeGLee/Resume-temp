@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PersonalForm from './components/personal/personalForm.js';
-import WorkExpForm from './components/workExp/workExpForm.js';
+import OverView from './components/overview';
 
 class App extends Component{
   constructor(props){
@@ -11,8 +10,7 @@ class App extends Component{
   render(){
     return(
       <div>
-        <PersonalForm />
-        <WorkExpForm />
+        <OverView />
       </div>
     )
   }

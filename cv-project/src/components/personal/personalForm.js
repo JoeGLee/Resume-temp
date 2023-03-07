@@ -51,7 +51,16 @@ class PersonalForm extends Component{
 
 
     render(){
-        if(this.state.personalInfo.edit === true){
+
+
+        if(this.props.togglePreview === true){
+            return(
+                <PersonalDisplay info={this.state.personalInfo}/>
+            )
+           
+        }
+
+        else if(this.state.personalInfo.edit === true){
         return(
             <div className="personal">
                 <form  className="personalForm">
@@ -68,6 +77,7 @@ class PersonalForm extends Component{
             </div>  
         )
         }//if edit is true renders the form onto page
+
 
         else{
             return(

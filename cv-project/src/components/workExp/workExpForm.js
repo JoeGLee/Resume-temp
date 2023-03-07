@@ -11,6 +11,7 @@ class WorkExpForm extends Component{
                 position: '',
                 company: '',
                 location: '',
+                jobDescription:'', 
                 datesWorked: '',
                 key: uniqid(),
                 edit: true,
@@ -25,15 +26,18 @@ class WorkExpForm extends Component{
                 position: document.getElementById("position").value,
                 company: document.getElementById("company").value,
                 location: document.getElementById("location").value,
+                jobDescription: document.getElementById("jobDescription").value,
                 datesWorked: document.getElementById("datesWorked").value,
                 key: this.state.workExpInfo.key,
                 edit: false,
             },
         })
+
     }// takes info when the form changes and updates the workExpInfo state
 
     addInfo = (e) =>{
         e.preventDefault();
+
         this.setState({
             workExpInfoArr: this.state.workExpInfoArr.concat(this.state.workExpInfo),
 
@@ -47,6 +51,7 @@ class WorkExpForm extends Component{
             },
 
         })   
+      
     }// adds workExpInfo to an array
 
     delete = (e) =>{
@@ -83,10 +88,40 @@ class WorkExpForm extends Component{
             workExpInfoArr: tempArr
         })
         
-        console.log(this.state.workExpInfoArr)
-    
     }// uses filter method to separate the workExpInfoArr into two different arrays than sets workExpInfo.edit to true and merges two arrays
 
+    addEdited = (e) =>{
+
+        e.preventDefault();
+        
+        const tempArr = this.state.workExpInfoArr.filter((workExpInfo)=>{
+            return(
+                workExpInfo.key !== e.target.id
+            );
+        })
+
+        const holder = this.state.workExpInfoArr.filter((workExpInfo)=>{
+            return(
+                workExpInfo.key === e.target.id
+            );
+        })
+
+        const index = this.state.workExpInfoArr.findIndex(workExpInfo => workExpInfo.key === holder[0].key);
+
+        holder[0].position = document.getElementById("position").value;
+        holder[0].company = document.getElementById("company").value;
+        holder[0].location = document.getElementById("location").value;
+        holder[0].datesWorked = document.getElementById("datesWorked").value;
+        holder[0].key = e.target.id;
+        holder[0].edit = false;
+        tempArr.splice(index,0 , holder[0]);
+        
+        this.setState({
+            workExpInfoArr: tempArr
+        })
+        
+
+    }
 
 
     render(){
@@ -98,14 +133,21 @@ class WorkExpForm extends Component{
                                 <input type="text" id="company"/>
                                 <label htmlFor="location">Location: </label>
                                 <input type="text" id="location"/>
+                                <label htmlFor="jobDescription">Job Description: </label>
+                                <input type="text" id="jobDescription"/>
                                 <label htmlFor="datesWorked">Years at Position: </label>
                                 <input type="text" id="datesWorked"/>
                                 <button onClick={this.addInfo}>add</button>
                         </form>
 
+        if(this.props.togglePreview === true){
+            return(
+                 <WorkExpDisplay togglePreview={this.props.togglePreview} workExpInfoArr={this.state.workExpInfoArr} addEdited={this.addEdited} deleteButton={this.delete} editButton={this.edit}/>
+            )
+        }
 
 
-        if(this.state.workExpInfoArr.length === 0){
+        else if(this.state.workExpInfoArr.length === 0){
             return(
                 <div>
                    {workExpForm}
@@ -118,7 +160,7 @@ class WorkExpForm extends Component{
         else{ 
                 return(
             <div>
-                <WorkExpDisplay workExpInfoArr={this.state.workExpInfoArr} deleteButton={this.delete} workExpForm={workExpForm} editButton={this.edit}/>
+                <WorkExpDisplay workExpInfoArr={this.state.workExpInfoArr} addEdited={this.addEdited} deleteButton={this.delete} editButton={this.edit}/>
                 {workExpForm}
             </div>
             )
