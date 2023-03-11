@@ -127,16 +127,27 @@ class WorkExpForm extends Component{
     render(){
 
         const workExpForm = <form className = "workExpForm" onChange={this.onFormChange}>
+                            <div className="position">  
                                 <label htmlFor="position">Position: </label>
-                                <input type="text" id="position"/>
+                                <input type="text" id="position" placeholder=" "/>
+                            </div>
+                            <div className="company"> 
                                 <label htmlFor="company">Company: </label>
-                                <input type="text" id="company"/>
+                                <input type="text" id="company" placeholder=" "/>
+                            </div>
+                            <div className="location">
                                 <label htmlFor="location">Location: </label>
-                                <input type="text" id="location"/>
+                                <input type="text" id="location" placeholder=" "/>
+                            </div>
+                            <div className="datesWorked">
+                                <label htmlFor="datesWorked">Years: </label>
+                                <input type="text" id="datesWorked" placeholder="Start - End Date"/>
+                            </div>
+                            <div className="jobDescription">
                                 <label htmlFor="jobDescription">Job Description: </label>
-                                <input type="text" id="jobDescription"/>
-                                <label htmlFor="datesWorked">Years at Position: </label>
-                                <input type="text" id="datesWorked"/>
+                                <textarea type="text" id="jobDescription"/>
+                            </div>
+                                
                                 <button onClick={this.addInfo}>add</button>
                         </form>
 
@@ -149,7 +160,8 @@ class WorkExpForm extends Component{
 
         else if(this.state.workExpInfoArr.length === 0){
             return(
-                <div>
+                <div className="workFromDisplay">
+                    <h1>Work Experience</h1>
                    {workExpForm}
                 </div>
             )

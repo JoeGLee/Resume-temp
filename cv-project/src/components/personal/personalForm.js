@@ -49,7 +49,6 @@ class PersonalForm extends Component{
     }
 
 
-
     render(){
 
 
@@ -64,15 +63,11 @@ class PersonalForm extends Component{
         return(
             <div className="personal">
                 <form  className="personalForm">
-                    <label htmlFor="name">Name: </label>
-                    <input type="text" id="name"/>
-                    <label htmlFor="address">Address: </label>
-                    <input type="text" id="address"/>
-                    <label htmlFor="email">Email: </label>
-                    <input type="email" id="email"/>
-                    <label htmlFor="phoneNumber">Phone Number: </label>
-                    <input type="number" id="phoneNumber"/>
-                    <button onClick={this.addInfo}>add</button>
+                    <input type="text" id="name" placeholder="Name" onClick={this.onInputClicked}/>
+                    <input type="text" id="address" placeholder="Address" onClick={this.onInputClicked}/>
+                    <input type="email" id="email" placeholder="Email" onClick={this.onInputClicked}/>
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number" onClick={this.onInputClicked}/>
+                    <button className="personalAddButton" onClick={this.addInfo}>Add</button>
                 </form>
             </div>  
         )

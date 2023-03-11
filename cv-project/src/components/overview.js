@@ -40,7 +40,7 @@ class OverView extends Component{
 
     if(this.state.previewToggle === false){
      return(
-        <div>
+        <div className='display'>
             <PersonalForm />
             <WorkExpForm />
             <EducationForm />
@@ -52,7 +52,7 @@ class OverView extends Component{
 
     else{
         return(
-            <div>
+            <div className='display'>
                 <PersonalForm togglePreview={this.state.previewToggle}/>
                 <WorkExpForm togglePreview={this.state.previewToggle}/>
                 <EducationForm togglePreview={this.state.previewToggle}/>

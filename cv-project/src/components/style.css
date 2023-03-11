@@ -1,0 +1,137 @@
+body{
+    margin: 0;
+    background-color: rgb(34, 40, 49);
+}
+
+button{
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    border: solid .5px rgb(34, 40, 49);
+    color: rgb(34, 40, 49);
+    background-color: rgb(255, 211, 105);
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: rgb(247, 217, 148);
+    border: solid 2px rgb(34, 40, 49);
+    
+}
+
+.display{
+    background-color: rgb(238, 238, 238);
+    padding: 25px;
+    margin: auto; 
+    margin-top: 30px;
+    border-radius: 15px;
+    width: 75%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px
+    
+}
+/*------------- Personal Info -------------*/
+
+.personalForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 2px solid rgb(34, 40, 49);
+    padding-bottom: 10px;
+}
+
+.personalForm > input {
+    width: 25%;
+    height: 50px;
+    font-size: 25px;
+}
+
+.personalInfoDisplay{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(34, 40, 49);
+    padding-bottom: 10px;
+}
+
+
+
+.name{
+    
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.personalNotName{
+    align-self: center;
+}
+
+.personalNotName > *{
+    font-size: 20px;
+    padding: 2px;
+    margin: 5px;
+    
+}
+
+
+/* ------------ WorkEXP ------------ */
+
+/* Form */
+.workExpForm{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    row-gap: 10px;
+}
+
+.position{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.company{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.location{
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+.datesWorked{
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+
+.jobDescription{
+    width: 90%;
+    height: 90%;
+    grid-column: 1/5;
+    grid-row: 2/3;
+    justify-self: center;
+    display: flex;
+    align-items: start;
+    
+}
+
+#jobDescription{
+    width: 100%;
+    height: 100%;
+}
+
+/* Display */
+
+.workExpDisplay{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    row-gap: 10px;
+    justify-items: center;
+}
+
+.workExpDisplay > p{
+    font-size: 25px;
+}

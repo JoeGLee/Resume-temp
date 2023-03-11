@@ -7,12 +7,13 @@ class PersonalDisplay extends Component{
 
     render(){
         return(
-            <div>
-                <p>{this.props.info.name}</p>
-                <p>{this.props.info.address}</p>
-                <p>{this.props.info.email}</p>
-                <p>{this.props.info.phoneNumber}</p>
-
+            <div className="personalInfoDisplay">
+                <p className="name">{this.props.info.name}</p>
+                <div className="personalNotName">
+                    <p className="address"><b>Address: </b>{this.props.info.address}</p>
+                    <p className="email"><b>Email: </b>{this.props.info.email}</p>
+                    <p className="phoneNum"><b>Number:</b> {this.props.info.phoneNumber}</p>
+                </div>
             </div>
         )
     }
