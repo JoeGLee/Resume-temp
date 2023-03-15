@@ -13,11 +13,14 @@ class WorkExpDisplay extends Component{
                     if(this.props.togglePreview === true){
                         return(
                             <div key={workExpInfo.key} className="workExpDisplay">
-                                <p className="position"><b>Position:</b> {workExpInfo.position}</p>
-                                <p className="company">Company: {workExpInfo.company}</p>
-                                <p className="location">Location: {workExpInfo.location}</p>
-                                <p className="datesWorked">Years at Position: {workExpInfo.datesWorked}</p>
-                                <p className="jobDescription">Job Description: <p>{workExpInfo.jobDescription}</p> </p>
+                                <p className="position"><b>Position:</b>  {workExpInfo.position}</p>
+                                <p className="company"><b>Company:</b>  {workExpInfo.company}</p>
+                                <p className="location"><b>Location:</b>  {workExpInfo.location}</p>
+                                <p className="datesWorked"><b>Years at Position:</b>  {workExpInfo.datesWorked}</p>
+                                <div className="jobDescription">
+                                    <p className="jobDescriptionTitle"><b>Job Description:</b></p>
+                                    <p className="jobDescriptionList">{workExpInfo.jobDescription}</p>
+                                </div> 
                             </div>
                         )
                     }
@@ -53,13 +56,16 @@ class WorkExpDisplay extends Component{
                     else{
                         return(
                             <div key={workExpInfo.key} className="workExpDisplay">
-                                <p>Position: {workExpInfo.position}</p>
-                                <p>Company: {workExpInfo.company}</p>
-                                <p>Location: {workExpInfo.location}</p>
-                                <p>Years at Position: {workExpInfo.datesWorked}</p>
-                                <p>Job Description: {workExpInfo.jobDescription}</p>
+                                 <p className="position"><b>Position:</b>  {workExpInfo.position}</p>
+                                <p className="company"><b>Company:</b>  {workExpInfo.company}</p>
+                                <p className="location"><b>Location:</b>  {workExpInfo.location}</p>
+                                <p className="datesWorked"><b>Years at Position:</b>  {workExpInfo.datesWorked}</p>
+                                <div className="jobDescription">
+                                    <p className="jobDescriptionTitle"><b>Job Description:</b></p>
+                                    <p className="jobDescriptionList">{workExpInfo.jobDescription}</p>
+                                </div> 
                                 <button id={workExpInfo.key} onClick={this.props.editButton}>edit</button>
-                                <button id={workExpInfo.key} onClick={this.props.deleteButton}>Delete</button>
+                                <button id={workExpInfo.key} onClick={this.props.deleteButton} className="deleteButton">Delete</button>
                                 
                             </div>
                         )

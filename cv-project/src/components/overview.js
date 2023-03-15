@@ -45,7 +45,7 @@ class OverView extends Component{
             <WorkExpForm />
             <EducationForm />
             <SkillForm/>
-            <button onClick={this.buttonClicked}>{this.state.buttonText}</button>
+            <button onClick={this.buttonClicked} className="overView">{this.state.buttonText}</button>
         </div>
         )
     }
@@ -57,7 +57,7 @@ class OverView extends Component{
                 <WorkExpForm togglePreview={this.state.previewToggle}/>
                 <EducationForm togglePreview={this.state.previewToggle}/>
                 <SkillForm togglePreview={this.state.previewToggle}/>
-                <button onClick={this.buttonClicked}>{this.state.buttonText}</button>
+                <button onClick={this.buttonClicked} className="overView">{this.state.buttonText}</button>
             </div>
             )
     }

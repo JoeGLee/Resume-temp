@@ -126,6 +126,7 @@ class SkillForm extends Component{
         else if(this.state.skillInfoArr.length === 0){
             return(
                 <div>
+                <h1 className="skillDisplayTitle">Skills</h1>
                    {skillForm}
                 </div>
             )

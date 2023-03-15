@@ -14,11 +14,11 @@ class EducationDisplay extends Component{
                     if(this.props.togglePreview === true)
                     {
                         return(
-                            <div key={educationInfo.key} className="EducationDisplay">
-                                <p>School: {educationInfo.school}</p>
-                                <p>Degree: {educationInfo.degree}</p>
-                                <p>GPA: {educationInfo.GPA}</p>
-                                <p>Years At School: {educationInfo.date}</p>
+                            <div key={educationInfo.key} className="educationDisplay">
+                                <p><b>School:</b> {educationInfo.school}</p>
+                                <p><b>Degree:</b> {educationInfo.degree}</p>
+                                <p><b>GPA:</b> {educationInfo.GPA}</p>
+                                <p><b>Years At School:</b> {educationInfo.date}</p>
                             </div>
                         )
                     }
@@ -26,27 +26,35 @@ class EducationDisplay extends Component{
                     else if(educationInfo.edit === true){
                         return(
                         <form key={educationInfo.key} className = "educationForm" >
+                            <div className="school">
                                 <label htmlFor="school">School: </label>
                                 <input type="text" id="school"/>
+                            </div>
+                            <div className="degree">
                                 <label htmlFor="degree">Degree: </label>
                                 <input type="text" id="degree"/>
+                            </div>
+                            <div className="GPA">
                                 <label htmlFor="GPA">GPA: </label>
                                 <input type="text" id="GPA"/>
-                                <label htmlFor="date">Years at School:</label>
+                            </div>
+                            <div className="date">
+                                <label htmlFor="date">Years at School: </label>
                                 <input type="text" id="date"/>
+                            </div>
                                 <button id={educationInfo.key} onClick={this.props.addEdited}>add</button>
                             </form>
                         )
                     }// adjust addInfo
                     else{
                         return(
-                            <div key={educationInfo.key} className="EducationDisplay">
-                                <p>School: {educationInfo.school}</p>
-                                <p>Degree: {educationInfo.degree}</p>
-                                <p>GPA: {educationInfo.GPA}</p>
-                                <p>Years At School: {educationInfo.date}</p>
+                            <div key={educationInfo.key} className="educationDisplay">
+                                 <p><b>School:</b> {educationInfo.school}</p>
+                                <p><b>Degree:</b> {educationInfo.degree}</p>
+                                <p><b>GPA:</b> {educationInfo.GPA}</p>
+                                <p><b>Years At School:</b> {educationInfo.date}</p>
                                 <button id={educationInfo.key} onClick={this.props.editButton}>edit</button>
-                                <button id={educationInfo.key} onClick={this.props.deleteButton}>Delete</button>
+                                <button id={educationInfo.key} onClick={this.props.deleteButton} className="deleteButton">Delete</button>
                             </div>
                         )
                     }

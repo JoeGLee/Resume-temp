@@ -122,14 +122,23 @@ class EducationForm extends Component{
     render(){
 
         const educationForm = <form className = "educationForm" onChange={this.onFormChange}>
+                            <div className="school">
                                 <label htmlFor="school">School: </label>
                                 <input type="text" id="school"/>
+                            </div>
+                            <div className="degree">
                                 <label htmlFor="degree">Degree: </label>
                                 <input type="text" id="degree"/>
+                            </div>
+                            <div className="GPA">
                                 <label htmlFor="GPA">GPA: </label>
                                 <input type="text" id="GPA"/>
+                            </div>
+                            <div className="date">
                                 <label htmlFor="date">Years at School: </label>
                                 <input type="text" id="date"/>
+                            </div>
+                        
                                 <button onClick={this.addInfo}>add</button>
                         </form>
 
@@ -142,6 +151,7 @@ class EducationForm extends Component{
         else if(this.state.educationInfoArr.length === 0){
             return(
                 <div>
+                    <h1 className="educationDisplayTitle">Education</h1> 
                    {educationForm}
                 </div>
             )

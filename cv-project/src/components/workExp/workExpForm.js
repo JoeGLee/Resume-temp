@@ -161,7 +161,7 @@ class WorkExpForm extends Component{
         else if(this.state.workExpInfoArr.length === 0){
             return(
                 <div className="workFromDisplay">
-                    <h1>Work Experience</h1>
+                    <h1 className="workExpTitle">Work Experience</h1>
                    {workExpForm}
                 </div>
             )

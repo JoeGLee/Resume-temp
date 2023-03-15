@@ -7,8 +7,9 @@ class SkillDisplay extends Component{
 
     render(){
         return(
-            <div className="skillDisplayContainer">
+            <div className="skillDisplay">
                 <h1 className="skillDisplayTitle">Skills</h1>
+                <div className="skillDisplayContainer">
                 {this.props.skillInfoArr.map((skillInfo) => {
                     if(this.props.togglePreview === true){
                         return(
@@ -36,6 +37,7 @@ class SkillDisplay extends Component{
                         )
                     }
                 })}
+                </div>
             </div>
         )
     }
